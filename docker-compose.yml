@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  web:
+    image: vitthalatar2145/my-php
+    ports:
+      - "80:80"
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASS: examplepassword
+      DB_NAME: myapp
+    depends_on:
+      - db
+
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: examplepassword
+      MYSQL_DATABASE: myapp
